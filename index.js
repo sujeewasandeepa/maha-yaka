@@ -34,9 +34,9 @@ const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
+
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
-
 	// set a new item in the collection with the key as the command name and the value 
 	// as the exported module
 	if ('data' in command && 'execute' in command) {
@@ -50,7 +50,6 @@ client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
 	const command = interaction.client.commands.get(interaction.commandName);
-	console.log(interaction);
 
 	if (!command) {
 		console.error(`No command matching ${interaction.commandName} was found.`);
