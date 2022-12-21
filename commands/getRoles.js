@@ -6,7 +6,6 @@ module.exports = {
     .setDescription('Get roles to show your academic year and programme.'),
 
   async execute(interaction) {
-    const rows = []
     const row1 = new ActionRowBuilder()
       .addComponents(
         new StringSelectMenuBuilder()
